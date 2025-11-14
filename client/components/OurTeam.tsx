@@ -100,11 +100,21 @@ export default function OurTeam() {
                   {featuredMember.role}
                 </p>
               </div>
-              {featuredMember.linkedinUrl && (
-                <a href={featuredMember.linkedinUrl} className="inline-flex" aria-label="LinkedIn profile">
-                  <Linkedin className="w-[14px] h-[14px] text-[#001354]" />
-                </a>
-              )}
+              <a 
+                href={featuredMember.linkedinUrl && featuredMember.linkedinUrl !== "#" ? featuredMember.linkedinUrl : "https://www.linkedin.com"}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex hover:opacity-80 transition-opacity" 
+                aria-label={`${featuredMember.name} LinkedIn profile`}
+                onClick={(e) => {
+                  if (!featuredMember.linkedinUrl || featuredMember.linkedinUrl === "#") {
+                    e.preventDefault();
+                    window.open("https://www.linkedin.com", "_blank", "noopener,noreferrer");
+                  }
+                }}
+              >
+                <Linkedin className="w-[14px] h-[14px] text-[#001354]" />
+              </a>
             </div>
           </div>
         </div>
@@ -127,11 +137,21 @@ export default function OurTeam() {
                     {member.role}
                   </p>
                 </div>
-                {member.linkedinUrl && (
-                  <a href={member.linkedinUrl} className="inline-flex" aria-label="LinkedIn profile">
-                    <Linkedin className="w-[14px] h-[14px] text-[#001354]" />
-                  </a>
-                )}
+                <a 
+                  href={member.linkedinUrl && member.linkedinUrl !== "#" ? member.linkedinUrl : "https://www.linkedin.com"}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex hover:opacity-80 transition-opacity" 
+                  aria-label={`${member.name} LinkedIn profile`}
+                  onClick={(e) => {
+                    if (!member.linkedinUrl || member.linkedinUrl === "#") {
+                      e.preventDefault();
+                      window.open("https://www.linkedin.com", "_blank", "noopener,noreferrer");
+                    }
+                  }}
+                >
+                  <Linkedin className="w-[14px] h-[14px] text-[#001354]" />
+                </a>
               </div>
             </div>
           ))}

@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -10,6 +11,25 @@ export default function Header() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    // Only handle smooth scroll if we're on the home page
+    if (location.pathname === "/") {
+      e.preventDefault();
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const headerHeight = 79; // Height of fixed header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+      closeMenu();
+    }
   };
 
   return (
@@ -30,31 +50,36 @@ export default function Header() {
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-6">
           <Link
-            to="/"
+            to="/#home"
+            onClick={(e) => handleNavClick(e, "home")}
             className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors"
           >
             Home
           </Link>
           <Link
-            to="/about"
+            to="/#about"
+            onClick={(e) => handleNavClick(e, "about")}
             className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors"
           >
             About
           </Link>
           <Link
-            to="/tokens"
+            to="/#tokens"
+            onClick={(e) => handleNavClick(e, "tokens")}
             className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors"
           >
             Tokens
           </Link>
           <Link
-            to="/roadmap"
+            to="/#roadmap"
+            onClick={(e) => handleNavClick(e, "roadmap")}
             className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors"
           >
             Roadmap
           </Link>
           <Link
-            to="/contact"
+            to="/#contact"
+            onClick={(e) => handleNavClick(e, "contact")}
             className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors"
           >
             Contact
@@ -87,36 +112,36 @@ export default function Header() {
         <div className="bg-white/95 backdrop-blur-sm border-t border-black/5 px-6 py-4">
           <div className="flex flex-col gap-4">
             <Link
-              to="/"
-              onClick={closeMenu}
+              to="/#home"
+              onClick={(e) => handleNavClick(e, "home")}
               className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors py-2"
             >
               Home
             </Link>
             <Link
-              to="/about"
-              onClick={closeMenu}
+              to="/#about"
+              onClick={(e) => handleNavClick(e, "about")}
               className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors py-2"
             >
               About
             </Link>
             <Link
-              to="/tokens"
-              onClick={closeMenu}
+              to="/#tokens"
+              onClick={(e) => handleNavClick(e, "tokens")}
               className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors py-2"
             >
               Tokens
             </Link>
             <Link
-              to="/roadmap"
-              onClick={closeMenu}
+              to="/#roadmap"
+              onClick={(e) => handleNavClick(e, "roadmap")}
               className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors py-2"
             >
               Roadmap
             </Link>
             <Link
-              to="/contact"
-              onClick={closeMenu}
+              to="/#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
               className="text-black/60 text-base font-normal leading-[23px] tracking-[-0.16px] hover:text-black transition-colors py-2"
             >
               Contact
