@@ -12,7 +12,7 @@ export default function OurTeam() {
     name: "Jari de smaele",
     role: "Ceo & Founder",
     image: "https://api.builder.io/api/v1/image/assets/TEMP/7de63494fb0f809758388d3a659fb9b7914e936b?width=528",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/jari-de-smaele-4a68aa38a/",
   };
 
   const teamMembers: TeamMember[] = [
@@ -20,25 +20,25 @@ export default function OurTeam() {
       name: "Sven Halbach",
       role: "Community & Ecosystem Manager",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/acaf6bbfdabf73fab65e13e37d939e84bc2b2f79?width=533",
-      linkedinUrl: "#",
+      linkedinUrl: "https://www.linkedin.com/in/sven-halbach-a63ba338a/",
     },
     {
       name: "Sacha Capelluto",
       role: "AI Engineer | Machine Learning & Data Science",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/a01050eacd9eff6d23a281d5e56d7deeba6196f1?width=533",
-      linkedinUrl: "#",
+      linkedinUrl: "https://www.linkedin.com/in/sacha-capelluto-489864312/?trk=opento_nprofile_details",
     },
     {
       name: "Yash Shukla",
       role: "Lead Full-Stack Developer & UI/UX Engineer",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/299ba8ba302fe7171dc98710f42ec2d2b1b10c3a?width=528",
-      linkedinUrl: "#",
+      linkedinUrl: "https://www.linkedin.com/in/sacha-capelluto-489864312/?trk=opento_nprofile_details",
     },
     {
       name: "Janus Ladero",
       role: "Blockchain | Web3 & AI Developer",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/7fb476f1342d4f020c064ba3785cb9bef0ca4734?width=533",
-      linkedinUrl: "#",
+      linkedinUrl: "https://www.linkedin.com/in/blockchaindeveloper2025/",
     },
   ];
 
@@ -144,10 +144,9 @@ export default function OurTeam() {
                   className="inline-flex hover:opacity-80 transition-opacity" 
                   aria-label={`${member.name} LinkedIn profile`}
                   onClick={(e) => {
-                    if (!member.linkedinUrl || member.linkedinUrl === "#") {
-                      e.preventDefault();
-                      window.open("https://www.linkedin.com", "_blank", "noopener,noreferrer");
-                    }
+                   
+                      window.open(`${member.linkedinUrl}`, "_blank", "noopener,noreferrer");
+                  
                   }}
                 >
                   <Linkedin className="w-[14px] h-[14px] text-[#001354]" />

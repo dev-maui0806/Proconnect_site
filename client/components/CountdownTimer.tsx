@@ -27,7 +27,7 @@ export default function CountdownTimer() {
       }
       // Set start time to now if not stored
       const startTime = Date.now();
-      localStorage.setItem(STORAGE_KEY, startTime.toString());
+      // localStorage.setItem(STORAGE_KEY, startTime.toString());
       return startTime;
     };
 
