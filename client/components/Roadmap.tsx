@@ -103,72 +103,36 @@ export default function Roadmap() {
         </div>
 
         {/* Timeline Cards Grid */}
-        <div className="flex flex-col gap-4 mb-8 container">
-          {/* Row 1 - 3 Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {roadmapItems.slice(0, 3).map((item, index) => (
-              <div 
-                key={index}
-                className="flex flex-col gap-4 p-6 rounded-[20px] border border-black/8 bg-white"
-              >
-                <h3 className="text-[#010D3E] font-inter font-normal text-[20px] md:text-[22px] leading-[1.4] tracking-[-0.792px]">
-                  {item.title}
-                </h3>
-                <div className="flex flex-col gap-2">
-                  {item.items.map((detail, idx) => (
-                    <div key={idx} className="flex items-center gap-4">
-                      <svg 
-                        width="6" 
-                        height="6" 
-                        viewBox="0 0 6 6" 
-                        fill="none" 
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="flex-shrink-0 mt-1"
-                      >
-                        <circle cx="3" cy="3" r="3" fill="#010D3E" />
-                      </svg>
-                      <p className="flex-1 text-[#6F6C90] font-dm-sans font-bold text-[16px] md:text-[18px] leading-normal tracking-[-0.558px]">
-                        {detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 container">
+          {roadmapItems.map((item, index) => (
+            <div 
+              key={index}
+              className="flex flex-col gap-4 p-6 rounded-[20px] border border-black/8 bg-white"
+            >
+              <h3 className="text-[#010D3E] font-inter font-normal text-[20px] md:text-[22px] leading-[1.4] tracking-[-0.792px]">
+                {item.title}
+              </h3>
+              <div className="flex flex-col gap-2">
+                {item.items.map((detail, idx) => (
+                  <div key={idx} className="flex items-center gap-4">
+                    <svg 
+                      width="6" 
+                      height="6" 
+                      viewBox="0 0 6 6" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 mt-1"
+                    >
+                      <circle cx="3" cy="3" r="3" fill="#010D3E" />
+                    </svg>
+                    <p className="flex-1 text-[#6F6C90] font-dm-sans font-bold text-[16px] md:text-[18px] leading-normal tracking-[-0.558px]">
+                      {detail}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* Row 2 - 3 Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {roadmapItems.slice(3, 6).map((item, index) => (
-              <div 
-                key={index}
-                className="flex flex-col gap-4 p-6 rounded-[20px] border border-black/8 bg-white"
-              >
-                <h3 className="text-[#010D3E] font-inter font-normal text-[20px] md:text-[22px] leading-[1.4] tracking-[-0.792px]">
-                  {item.title}
-                </h3>
-                <div className="flex flex-col gap-2">
-                  {item.items.map((detail, idx) => (
-                    <div key={idx} className="flex items-center gap-4">
-                      <svg 
-                        width="6" 
-                        height="6" 
-                        viewBox="0 0 6 6" 
-                        fill="none" 
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="flex-shrink-0 mt-1"
-                      >
-                        <circle cx="3" cy="3" r="3" fill="#010D3E" />
-                      </svg>
-                      <p className="flex-1 text-[#6F6C90] font-dm-sans font-bold text-[16px] md:text-[18px] leading-normal tracking-[-0.558px]">
-                        {detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Disclaimer */}
