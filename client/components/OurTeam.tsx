@@ -32,7 +32,7 @@ export default function OurTeam() {
       name: "Yash Shukla",
       role: "Lead Full-Stack Developer & UI/UX Engineer",
       image: "https://api.builder.io/api/v1/image/assets/TEMP/299ba8ba302fe7171dc98710f42ec2d2b1b10c3a?width=528",
-      linkedinUrl: "https://www.linkedin.com/in/sacha-capelluto-489864312/?trk=opento_nprofile_details",
+      linkedinUrl: "https://www.linkedin.com/in/yashshukla4261/",
     },
     {
       name: "Janus Ladero",
